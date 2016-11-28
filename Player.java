@@ -19,7 +19,7 @@ public class Player {
        public int make_bet() {
     	   if (chips > 0) {
     		   bet = 1;
-    		  //chips -= bet;
+    		   //chips -= bet;
     	   }
     	   else {
     		   bet = 0;
