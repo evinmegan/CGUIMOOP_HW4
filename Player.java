@@ -19,7 +19,7 @@ public class Player {
        public int make_bet() {
     	   if (chips > 0) {
     		   bet = 1;
-    		   //chips -= 1;
+    		  //chips -= bet;
     	   }
     	   else {
     		   bet = 0;
@@ -43,11 +43,19 @@ public class Player {
        public int getTotalValue() {
     	   int value = 0;
     	   for (Card element : oneRoundCard){
-    		   value += element.getRank();
-    		   if (element.getRank() == 1) {
-    			   if (new Random().nextInt(2) == 0) {
-    				   value += 10;
-    			   }	   
+    		   if (element.getRank() == 11 || element.getRank() == 12 || element.getRank() == 13) {
+    			   value += 10;
+    		   } 
+    		   else if (element.getRank() == 1){
+	    		   if(value >= 15) {
+	    			   value += 1;
+	    		   }
+	    		   else {
+	    			   value += 11;
+	    		   }
+    		   }
+    		   else  {
+    			   value += element.getRank();
     		   }
     	   }
     	   return value;
